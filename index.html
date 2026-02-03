@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Love Journey for Radha ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Password Screen -->
+    <div id="passwordScreen" class="password-screen active">
+        <div class="password-container">
+            <div class="floating-hearts">
+                <span class="heart">💕</span>
+                <span class="heart">💖</span>
+                <span class="heart">💗</span>
+                <span class="heart">💝</span>
+                <span class="heart">💞</span>
+            </div>
+            <h1 class="password-title">A Love Journey Awaits...</h1>
+            <p class="password-hint">Only for Radha ❤️</p>
+            <input type="password" id="passwordInput" placeholder="Enter the magic word..." autocomplete="off">
+            <button id="passwordBtn" onclick="checkPassword()">Unlock My Heart</button>
+            <p id="passwordError" class="password-error"></p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Animated Name Header -->
+        <div class="name-header">
+            <div class="name-animation">
+                <span class="letter">R</span>
+                <span class="letter">A</span>
+                <span class="letter">D</span>
+                <span class="letter">H</span>
+                <span class="letter">A</span>
+            </div>
+            <p class="subtitle">A Valentine's Week Made Just for You</p>
+        </div>
+
+        <!-- Days Container -->
+        <div class="days-container">
+            <!-- Rose Day - Feb 7 -->
+            <div class="day-card" data-day="2025-02-07" data-page="RoseDay.html">
+                <div class="card-inner">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                    <h3 class="day-title">Rose Day</h3>
+                    <p class="day-date">7th February</p>
+                    <div class="lock-indicator">🔒</div>
+                    <div class="countdown-timer" id="timer-0">
+                        <span class="timer-text">Unlocks in:</span>
+                        <div class="timer-digits">
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">H</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">M</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">S</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Propose Day - Feb 8 -->
+            <div class="day-card" data-day="2025-02-08" data-page="ProposeDay.html">
+                <div class="card-inner">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                    <h3 class="day-title">Propose Day</h3>
+                    <p class="day-date">8th February</p>
+                    <div class="lock-indicator">🔒</div>
+                    <div class="countdown-timer" id="timer-1">
+                        <span class="timer-text">Unlocks in:</span>
+                        <div class="timer-digits">
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">H</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">M</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">S</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chocolate Day - Feb 9 -->
+            <div class="day-card" data-day="2025-02-09" data-page="ChocolateDay.html">
+                <div class="card-inner">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                    <h3 class="day-title">Chocolate Day</h3>
+                    <p class="day-date">9th February</p>
+                    <div class="lock-indicator">🔒</div>
+                    <div class="countdown-timer" id="timer-2">
+                        <span class="timer-text">Unlocks in:</span>
+                        <div class="timer-digits">
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">H</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">M</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">S</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teddy Day - Feb 10 -->
+            <div class="day-card" data-day="2025-02-10" data-page="TeddyDay.html">
+                <div class="card-inner">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                    <h3 class="day-title">Teddy Day</h3>
+                    <p class="day-date">10th February</p>
+                    <div class="lock-indicator">🔒</div>
+                    <div class="countdown-timer" id="timer-3">
+                        <span class="timer-text">Unlocks in:</span>
+                        <div class="timer-digits">
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">H</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">M</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">S</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Promise Day - Feb 11 -->
+            <div class="day-card" data-day="2025-02-11" data-page="PromiseDay.html">
+                <div class="card-inner">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                    <h3 class="day-title">Promise Day</h3>
+                    <p class="day-date">11th February</p>
+                    <div class="lock-indicator">🔒</div>
+                    <div class="countdown-timer" id="timer-4">
+                        <span class="timer-text">Unlocks in:</span>
+                        <div class="timer-digits">
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">H</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">M</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">S</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hug Day - Feb 12 -->
+            <div class="day-card" data-day="2025-02-12" data-page="HugDay.html">
+                <div class="card-inner">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                    <h3 class="day-title">Hug Day</h3>
+                    <p class="day-date">12th February</p>
+                    <div class="lock-indicator">🔒</div>
+                    <div class="countdown-timer" id="timer-5">
+                        <span class="timer-text">Unlocks in:</span>
+                        <div class="timer-digits">
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">H</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">M</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">S</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kiss Day - Feb 13 -->
+            <div class="day-card" data-day="2025-02-13" data-page="KissDay.html">
+                <div class="card-inner">
+                    <div class="gift-box">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                    <h3 class="day-title">Kiss Day</h3>
+                    <p class="day-date">13th February</p>
+                    <div class="lock-indicator">🔒</div>
+                    <div class="countdown-timer" id="timer-6">
+                        <span class="timer-text">Unlocks in:</span>
+                        <div class="timer-digits">
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">H</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">M</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">S</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valentine's Day - Feb 14 -->
+            <div class="day-card valentine-special" data-day="2025-02-14" data-page="ValentinesDay.html">
+                <div class="card-inner">
+                    <div class="gift-box special-gift">
+                        <div class="gift-lid"></div>
+                        <div class="gift-body"></div>
+                        <div class="gift-ribbon-v"></div>
+                        <div class="gift-ribbon-h"></div>
+                        <div class="gift-bow"></div>
+                        <div class="special-glow"></div>
+                    </div>
+                    <h3 class="day-title">Valentine's Day</h3>
+                    <p class="day-date">14th February ❤️</p>
+                    <div class="lock-indicator">🔒</div>
+                    <div class="countdown-timer" id="timer-7">
+                        <span class="timer-text">Unlocks in:</span>
+                        <div class="timer-digits">
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">H</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">M</span></span>
+                            <span class="time-separator">:</span>
+                            <span class="time-unit"><span class="time-number">00</span><span class="time-label">S</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locked Message Modal -->
+        <div id="lockedModal" class="modal">
+            <div class="modal-content">
+                <h2>Patience, my love... 💕</h2>
+                <p>This gift opens at midnight ❤️</p>
+                <button onclick="closeModal()">Okay</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

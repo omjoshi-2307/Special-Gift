@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day - For Radha ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .valentine-special-content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 197, 197, 0.3) 100%);
+            border: 3px solid var(--deep-pink);
+        }
+        
+        .final-message {
+            font-size: 3.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-pink);
+            margin: 40px 0;
+            font-weight: 700;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.5);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .heart-container {
+            font-size: 4rem;
+            margin: 30px 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+    <div class="daily-page">
+        <!-- Animation Container -->
+        <div class="animation-container"></div>
+        
+        <!-- Content -->
+        <div class="daily-content valentine-special-content">
+            <div class="name-animation">
+                <span class="letter">R</span>
+                <span class="letter">A</span>
+                <span class="letter">D</span>
+                <span class="letter">H</span>
+                <span class="letter">A</span>
+            </div>
+            
+            <h1 class="daily-title">💝 Happy Valentine's Day 💝</h1>
+            
+            <p class="daily-message">
+                Seven days of love have led us here,<br>
+                to this moment, to this declaration.<br><br>
+                
+                Like roses, you bring beauty to my world.<br>
+                Like a proposal, you've captured my heart completely.<br>
+                Like chocolate, you make life sweeter.<br>
+                Like a teddy bear, you bring me comfort and warmth.<br>
+                Like a promise, I commit myself to you forever.<br>
+                Like a hug, you hold me together.<br>
+                Like a kiss, you awaken everything beautiful in me.<br><br>
+                
+                And today, on Valentine's Day,<br>
+                I want to tell you the truth<br>
+                that has been growing in my heart<br>
+                since the day I met you...<br>
+            </p>
+            
+            <div class="final-message">
+                RADHA, I LOVE YOU
+            </div>
+            
+            <div class="heart-container">
+                ❤️
+            </div>
+            
+            <p class="daily-message">
+                I love you not just today, but every day.<br>
+                I love you in the silence and in the chaos.<br>
+                I love you in your strength and in your vulnerability.<br>
+                I love you when you're happy and when you're struggling.<br><br>
+                
+                I love you for who you are,<br>
+                for who you're becoming,<br>
+                and for choosing to share your journey with me.<br><br>
+                
+                This week has been my way of showing you<br>
+                the different shades of my love,<br>
+                but the truth is simple:<br><br>
+                
+                You are my heart, my home, my everything.<br><br>
+                
+                Happy Valentine's Day, my love.<br>
+                Here's to us, to our story, to our forever. 💕
+            </p>
+            
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Trigger multiple animations for the grand finale
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial fireworks burst
+            createFireworks();
+            createFloatingHearts();
+            
+            // Keep creating fireworks and hearts periodically
+            setInterval(createFireworks, 5000);
+            setInterval(createFloatingHearts, 6000);
+        });
+    </script>
+</body>
+</html>

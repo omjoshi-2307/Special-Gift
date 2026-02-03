@@ -1,0 +1,721 @@
+/* ===== CSS Variables ===== */
+:root {
+    --nude-pink: #FFC5C5;
+    --lavender: #E6D5F5;
+    --white: #FFFFFF;
+    --emerald: #7EC8A3;
+    --cream: #FFF8F0;
+    --rose: #FF8FA3;
+    --deep-pink: #FF6B9D;
+    --soft-purple: #C4A8E8;
+    --text-dark: #4A4A4A;
+    --text-light: #8A8A8A;
+    
+    /* Shadows and glows */
+    --shadow-soft: 0 8px 32px rgba(255, 107, 157, 0.15);
+    --shadow-deep: 0 16px 48px rgba(255, 107, 157, 0.25);
+    --glow-pink: 0 0 20px rgba(255, 197, 197, 0.6);
+    --glow-purple: 0 0 30px rgba(196, 168, 232, 0.5);
+}
+
+/* ===== Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--lavender) 50%, var(--nude-pink) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(255, 197, 197, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(196, 168, 232, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== Password Screen ===== */
+.password-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--lavender) 0%, var(--nude-pink) 100%);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-screen.active {
+    display: flex;
+}
+
+.password-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-deep);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.floating-hearts {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.floating-hearts .heart {
+    font-size: 2rem;
+    animation: floatHeart 3s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.floating-hearts .heart:nth-child(2) { animation-delay: 0.5s; }
+.floating-hearts .heart:nth-child(3) { animation-delay: 1s; }
+.floating-hearts .heart:nth-child(4) { animation-delay: 1.5s; }
+.floating-hearts .heart:nth-child(5) { animation-delay: 2s; }
+
+@keyframes floatHeart {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+}
+
+.password-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--deep-pink);
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.password-hint {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+#passwordInput {
+    width: 100%;
+    padding: 18px 25px;
+    border: 2px solid var(--nude-pink);
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-family: 'Quicksand', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    background: var(--white);
+}
+
+#passwordInput:focus {
+    border-color: var(--deep-pink);
+    box-shadow: var(--glow-pink);
+}
+
+#passwordBtn {
+    width: 100%;
+    padding: 18px 25px;
+    background: linear-gradient(135deg, var(--deep-pink) 0%, var(--rose) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: var(--shadow-soft);
+}
+
+#passwordBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-deep);
+}
+
+#passwordBtn:active {
+    transform: translateY(-1px);
+}
+
+.password-error {
+    color: var(--deep-pink);
+    font-size: 0.95rem;
+    margin-top: 15px;
+    font-weight: 500;
+    min-height: 24px;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+    display: none;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.main-content.active {
+    display: block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Name Header Animation ===== */
+.name-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.name-animation {
+    display: inline-flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.name-animation .letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--deep-pink);
+    display: inline-block;
+    animation: letterFloat 3s ease-in-out infinite, letterGlow 2s ease-in-out infinite;
+    text-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+}
+
+.name-animation .letter:nth-child(1) { animation-delay: 0s; }
+.name-animation .letter:nth-child(2) { animation-delay: 0.2s; }
+.name-animation .letter:nth-child(3) { animation-delay: 0.4s; }
+.name-animation .letter:nth-child(4) { animation-delay: 0.6s; }
+.name-animation .letter:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes letterFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes letterGlow {
+    0%, 100% { text-shadow: 0 4px 20px rgba(255, 107, 157, 0.4); }
+    50% { text-shadow: 0 4px 30px rgba(255, 107, 157, 0.8), 0 0 40px rgba(196, 168, 232, 0.6); }
+}
+
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ===== Days Container ===== */
+.days-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    padding: 20px;
+}
+
+/* ===== Day Card ===== */
+.day-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    padding: 35px 25px;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.day-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 197, 197, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.day-card:hover::before {
+    opacity: 1;
+}
+
+.day-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-deep);
+}
+
+.day-card.unlocked {
+    background: linear-gradient(135deg, rgba(255, 197, 197, 0.3) 0%, rgba(255, 255, 255, 0.95) 100%);
+    animation: unlockPulse 2s ease-in-out infinite;
+}
+
+@keyframes unlockPulse {
+    0%, 100% { box-shadow: var(--shadow-soft); }
+    50% { box-shadow: var(--glow-pink), var(--shadow-deep); }
+}
+
+.day-card.unlocked:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.valentine-special {
+    border: 2px solid var(--deep-pink);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(230, 213, 245, 0.5) 100%);
+}
+
+.card-inner {
+    text-align: center;
+}
+
+/* ===== Gift Box Design ===== */
+.gift-box {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    transition: all 0.4s ease;
+}
+
+.day-card:hover .gift-box {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.gift-lid {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 25px;
+    background: linear-gradient(135deg, var(--deep-pink) 0%, var(--rose) 100%);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.3);
+    transition: all 0.3s ease;
+}
+
+.day-card.unlocked .gift-lid {
+    animation: lidOpen 1s ease-in-out infinite;
+}
+
+@keyframes lidOpen {
+    0%, 100% { transform: translateY(0) rotateX(0deg); }
+    50% { transform: translateY(-8px) rotateX(-10deg); }
+}
+
+.gift-body {
+    position: absolute;
+    top: 25px;
+    left: 15%;
+    width: 70%;
+    height: 70px;
+    background: linear-gradient(135deg, var(--nude-pink) 0%, var(--lavender) 100%);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 20px rgba(255, 197, 197, 0.3);
+}
+
+.gift-ribbon-v {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--emerald) 0%, var(--emerald) 100%);
+    z-index: 1;
+}
+
+.gift-ribbon-h {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: 12px;
+    background: linear-gradient(to right, var(--emerald) 0%, var(--emerald) 100%);
+    z-index: 1;
+}
+
+.gift-bow {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 35px;
+    background: var(--emerald);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(126, 200, 163, 0.5);
+}
+
+.gift-bow::before,
+.gift-bow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--emerald);
+    border-radius: 50% 50% 0 50%;
+}
+
+.gift-bow::before {
+    left: -15px;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+.gift-bow::after {
+    right: -15px;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.special-gift .special-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 107, 157, 0.3) 0%, transparent 70%);
+    animation: specialGlow 2s ease-in-out infinite;
+    border-radius: 12px;
+}
+
+@keyframes specialGlow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* ===== Day Card Text ===== */
+.day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--deep-pink);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.day-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.lock-indicator {
+    font-size: 2rem;
+    margin: 15px 0;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.day-card.unlocked .lock-indicator {
+    display: none;
+}
+
+.day-card.unlocked .lock-indicator::before {
+    content: '🔓';
+}
+
+/* ===== Countdown Timer ===== */
+.countdown-timer {
+    margin-top: 20px;
+}
+
+.timer-text {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.timer-digits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--deep-pink);
+    background: linear-gradient(135deg, var(--nude-pink) 0%, var(--lavender) 100%);
+    padding: 8px 12px;
+    border-radius: 10px;
+    min-width: 50px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(255, 197, 197, 0.3);
+}
+
+.time-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.time-separator {
+    font-size: 1.8rem;
+    color: var(--deep-pink);
+    font-weight: 700;
+    padding: 0 3px;
+}
+
+.day-card.unlocked .countdown-timer {
+    display: none;
+}
+
+/* ===== Modal ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: var(--shadow-deep);
+    animation: modalSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--deep-pink);
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.modal-content button {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, var(--deep-pink) 0%, var(--rose) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: var(--shadow-soft);
+}
+
+.modal-content button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-deep);
+}
+
+/* ===== Daily Page Styles ===== */
+.daily-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.daily-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 40px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-deep);
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.daily-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--deep-pink);
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 0 4px 20px rgba(255, 107, 157, 0.3);
+}
+
+.daily-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--deep-pink);
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.daily-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    line-height: 2;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.back-btn {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, var(--deep-pink) 0%, var(--rose) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: var(--shadow-soft);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-deep);
+}
+
+/* Animation containers */
+.animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .name-animation .letter {
+        font-size: 3rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .days-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 10px;
+    }
+    
+    .password-container {
+        padding: 40px 25px;
+    }
+    
+    .password-title {
+        font-size: 2rem;
+    }
+    
+    .daily-title {
+        font-size: 2.2rem;
+    }
+    
+    .daily-message {
+        font-size: 1.2rem;
+    }
+    
+    .daily-content {
+        padding: 40px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-animation .letter {
+        font-size: 2.5rem;
+        gap: 4px;
+    }
+    
+    .time-number {
+        font-size: 1.5rem;
+        padding: 6px 10px;
+        min-width: 45px;
+    }
+    
+    .gift-box {
+        width: 100px;
+        height: 100px;
+    }
+}
