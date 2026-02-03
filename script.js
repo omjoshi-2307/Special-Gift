@@ -1,17 +1,17 @@
 // ===== Password Configuration =====
-const CORRECT_PASSWORD = "radha"; // Change this to your desired password
+const CORRECT_PASSWORD = "Mrs.Radha Joshi"; // Change this to your desired password
 
 // ===== Date Configuration (IST Timezone) =====
 // Define unlock dates for each day (YYYY-MM-DD format)
 const unlockDates = [
-    "2025-02-07", // Rose Day
-    "2025-02-08", // Propose Day
-    "2025-02-09", // Chocolate Day
-    "2025-02-10", // Teddy Day
-    "2025-02-11", // Promise Day
-    "2025-02-12", // Hug Day
-    "2025-02-13", // Kiss Day
-    "2025-02-14"  // Valentine's Day
+    "2026-02-07", // Rose Day
+    "2026-02-08", // Propose Day
+    "2026-02-09", // Chocolate Day
+    "2026-02-10", // Teddy Day
+    "2026-02-11", // Promise Day
+    "2026-02-12", // Hug Day
+    "2026-02-13", // Kiss Day
+    "2026-02-14"  // Valentine's Day
 ];
 
 // ===== Password Functionality =====
