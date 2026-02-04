@@ -1,5 +1,5 @@
 // ===== Password Configuration =====
-const CORRECT_PASSWORD = "Mrs.Radha Joshi"; // Change this to your desired password
+const CORRECT_PASSWORD = "RADHA"; // Change this to your desired password
 
 // ===== Date Configuration (IST Timezone) =====
 // Define unlock dates for each day (YYYY-MM-DD format)
